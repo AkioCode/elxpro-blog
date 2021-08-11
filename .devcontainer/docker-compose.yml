@@ -12,7 +12,9 @@ services:
         # Phoenix Version: 1.4.17, 1.5.4, ...
         PHOENIX_VERSION: "1.5.7"
         # Node Version: 10, 11, ...
-        NODE_VERSION: "none"
+        NODE_VERSION: "14"
+
+    env_file: .env
 
     volumes:
       - ..:/workspace:cached
