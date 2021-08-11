@@ -1,11 +1,24 @@
 defmodule ElxproBlog.MixProject do
   use Mix.Project
 
+  @github_url "https://github.com/AkioCode/elxpro-blog"
+
   def project do
     [
       app: :elxpro_blog,
       version: "0.1.0",
       elixir: "~> 1.7",
+      description: "Projeto prático - Fundamentos de Phoenix",
+      source_url: @github_url,
+      homepage_url: @github_url,
+      files: ~w[mix.exs lib LICENSE.md README.md CHANGELOG.md],
+      package: [
+        maitainers: ["Rodrigo Otsuka"],
+        licenses: ["MIT"],
+        links: %{
+          "Github" => @github_url
+        }
+      ],
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
