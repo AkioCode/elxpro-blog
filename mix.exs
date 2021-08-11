@@ -68,7 +68,7 @@ defmodule ElxproBlog.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:observer_cli, "~> 1.6"},
       {:sobelow, "~> 0.8", only: :dev},
-      {:excoveralls, "~> 0.10", only: :test},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 
