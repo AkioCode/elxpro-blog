@@ -1,0 +1,18 @@
+{
+"skip_files": [
+    "lib/elxpro_blog/application.ex",
+    "lib/elxpro_blog/release.ex",
+    "lib/elxpro_blog_web.ex",
+    "lib/elxpro_blog_web/views/error_helpers.ex",
+    "test/support/channel_case.ex",
+    "test/support/data_case.ex", 
+    "lib/elxpro_blog_web/router.ex",
+    "lib/elxpro_blog_web/channels/user_socket.ex",
+    "lib/elxpro_blog_web/telemetry.ex"
+],
+"coverage_options": {
+    "treat_no_relevant_lines_as_covered": true,
+    "output_dir": "cover/",
+    "minimum_coverage": 50
+}
+}
