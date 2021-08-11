@@ -75,8 +75,6 @@ jobs:
       - name: deps
         run: mix deps.get
       - name: coveralls
-        env:
-          MIX_ENV: test
         run: mix coveralls.json
       - uses: codecov/codecov-action@v1
         with:
