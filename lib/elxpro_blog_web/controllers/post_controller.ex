@@ -1,4 +1,4 @@
-defmodule ElxproBlog.PostController do
+defmodule ElxproBlogWeb.PostController do
   use ElxproBlogWeb, :controller
 
   def index(conn, _params) do
