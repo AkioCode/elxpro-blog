@@ -16,7 +16,7 @@ defmodule ElxproBlogWeb.Router do
   scope "/", ElxproBlogWeb do
     pipe_through [:browser]
 
-    get "posts", PostController, :index
+    get "/posts", PostController, :index
     get "/", PageController, :index
   end
 end
