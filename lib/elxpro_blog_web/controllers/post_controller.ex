@@ -1,17 +1,20 @@
 defmodule ElxproBlogWeb.PostController do
   use ElxproBlogWeb, :controller
 
-  def index(conn, _params) do
-    posts = [
-      %{id: 1, titulo: "Phoenix"},
-      %{id: 2, titulo: "Liveview"},
-      %{id: 3, titulo: "Postgres"}
-    ]
+  alias ElxproBlog.Posts.Core.PostRepo
 
+  def index(conn, _params) do
+    posts = PostRepo.all()
     render(conn, posts: posts)
   end
 
-  def show(conn, _params) do
+  def show(conn, %{"id" => id}) do
+    post = PostRepo.get!(id)
+    render(conn, post: post)
+  end
+
+  def new(conn, params) do
+    PostRepo.insert!(params)
     render(conn)
   end
 end
