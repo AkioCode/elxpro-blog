@@ -1,6 +1,7 @@
 defmodule ElxproBlogWeb.PostController do
   use ElxproBlogWeb, :controller
 
+  alias ElxproBlog.Posts.Data.Post
   alias ElxproBlog.Posts.Core.PostRepo
 
   def index(conn, _params) do
@@ -14,7 +15,12 @@ defmodule ElxproBlogWeb.PostController do
   end
 
   def new(conn, params) do
-    PostRepo.insert!(params)
-    render(conn)
+    changeset = Post.changeset(params)
+    render(conn, changeset: changeset)
+  end
+
+  def create(conn, params) do
+    post = PostRepo.insert!(params["post"])
+    render(conn, "show.html", post: post)
   end
 end
