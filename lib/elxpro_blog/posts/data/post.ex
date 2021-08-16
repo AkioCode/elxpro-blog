@@ -12,11 +12,9 @@ defmodule ElxproBlog.Posts.Data.Post do
     timestamps()
   end
 
-  def changeset(attrs \\ %{}), do: changeset(%__MODULE__{}, attrs)
-
-  def changeset(post, attrs) do
+  def changeset(post, attrs \\ %{}) do
     post
     |> cast(attrs, @fields)
-    |> validate_required(@required_fields, message: "precisa ser inserido")
+    |> validate_required(@required_fields, message: "Obrigatório")
   end
 end
