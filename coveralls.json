@@ -8,7 +8,8 @@
     "test/support/data_case.ex", 
     "lib/elxpro_blog_web/router.ex",
     "lib/elxpro_blog_web/channels/user_socket.ex",
-    "lib/elxpro_blog_web/telemetry.ex"
+    "lib/elxpro_blog_web/telemetry.ex",
+    "test/support/conn_case.ex"
 ],
 "coverage_options": {
     "treat_no_relevant_lines_as_covered": true,
