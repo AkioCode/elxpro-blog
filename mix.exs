@@ -30,7 +30,7 @@ defmodule ElxproBlog.MixProject do
         "coveralls.detail": :test,
         "coveralls.post": :test,
         "coveralls.html": :test,
-        "coveralls.json": :test
+        "coveralls.json": :test 
       ]
     ]
   end
@@ -41,6 +41,7 @@ defmodule ElxproBlog.MixProject do
   def application do
     [
       mod: {ElxproBlog.Application, []},
+      application: [:ex_machina],
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -70,7 +71,9 @@ defmodule ElxproBlog.MixProject do
       {:observer_cli, "~> 1.6"},
       {:sobelow, "~> 0.8", only: :dev},
       {:excoveralls, "~> 0.10", only: :test},
-      {:faker, "~> 0.16", only: [:dev, :test]}
+      {:faker, "~> 0.16", only: [:dev, :test]},
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
+      {:ex_machina, "~> 2.7.0", only: :test}
     ]
   end
 
