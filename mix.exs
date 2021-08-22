@@ -41,6 +41,7 @@ defmodule ElxproBlog.MixProject do
   def application do
     [
       mod: {ElxproBlog.Application, []},
+      application: [:ex_machina],
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -69,7 +70,10 @@ defmodule ElxproBlog.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:observer_cli, "~> 1.6"},
       {:sobelow, "~> 0.8", only: :dev},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:faker, "~> 0.16", only: [:dev, :test]},
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
+      {:ex_machina, "~> 2.7.0", only: :test}
     ]
   end
 

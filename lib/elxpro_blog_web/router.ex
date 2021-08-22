@@ -12,4 +12,10 @@ defmodule ElxproBlogWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
+
+  scope "/", ElxproBlogWeb do
+    pipe_through [:browser]
+    resources "/posts", PostController
+    get "/", PageController, :index
+  end
 end

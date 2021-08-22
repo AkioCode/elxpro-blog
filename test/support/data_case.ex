@@ -30,12 +30,13 @@ defmodule ElxproBlog.DataCase do
 
   setup tags do
     :ok = Sandbox.checkout(ElxproBlog.Repo)
+    post = ElxproBlog.Factory.insert(:post)
 
     unless tags[:async] do
       Sandbox.mode(ElxproBlog.Repo, {:shared, self()})
     end
 
-    :ok
+    [post: post]
   end
 
   @doc """

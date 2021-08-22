@@ -1,0 +1,2 @@
+<h2>Criar post</h2>
+<%= render "form.html", Map.put(assigns, :action, Routes.post_path(@conn, :create))%>

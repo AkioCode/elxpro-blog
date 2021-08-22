@@ -1,11 +1,9 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     ElxproBlog.Repo.insert!(%ElxproBlog.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+alias ElxproBlog.Repo
+
+%{title: Faker.App.name(), description: Faker.Lorem.Shakespeare.hamlet()}
+|> ElxproBlog.Posts.Data.Post.changeset()
+|> Repo.insert!()
+
+%{title: Faker.App.name(), description: Faker.Lorem.Shakespeare.hamlet()}
+|> ElxproBlog.Posts.Data.Post.changeset()
+|> Repo.insert!()
