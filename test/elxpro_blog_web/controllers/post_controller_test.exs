@@ -36,7 +36,7 @@ defmodule ElxproBlog.PostControllerTest do
 
     test "update", %{conn: conn} do
       post = Factory.insert(:post)
-      title = Faker.Person.title
+      title = Faker.Person.title()
       to_update = %{"post" => %{"title" => title}}
 
       response = put(conn, "/posts/#{post.id}", to_update)

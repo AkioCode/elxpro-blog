@@ -5,7 +5,7 @@ defmodule ElxproBlog.Factory do
 
   def post_factory do
     %Post{
-      title: Faker.Person.title,
+      title: Faker.Person.title(),
       description: Faker.Lorem.sentence(10..20)
     }
   end
