@@ -5,7 +5,7 @@ defmodule ElxproBlog.PostTest do
   alias ElxproBlog.Factory
   alias ElxproBlog.Posts.Core.PostRepo
 
-  describe "test post repo"do
+  describe "test post repo" do
     test "all" do
       assert length(PostRepo.all()) == 1
     end
@@ -24,11 +24,14 @@ defmodule ElxproBlog.PostTest do
 
     test "update" do
       post = Factory.insert(:post)
-      title = Faker.Person.title
+      title = Faker.Person.title()
+
       to_update = %{
         "id" => post.id,
         "post" => %{
-          "title" => title}}
+          "title" => title
+        }
+      }
 
       assert {:ok, updated_post} = PostRepo.update(to_update)
       assert updated_post.title == title
