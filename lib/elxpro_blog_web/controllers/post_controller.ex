@@ -25,8 +25,6 @@ defmodule ElxproBlogWeb.PostController do
     render(conn, "edit.html", post: post, changeset: changeset)
   end
 
-
-
   def create(conn, %{"post" => post}) do
     PostRepo.insert(post)
     |> case do
@@ -40,7 +38,7 @@ defmodule ElxproBlogWeb.PostController do
     end
   end
 
-  def update(conn, params) do
+  def update(conn, %{"id" => _id, "post" => _post_params} = params) do
     PostRepo.update(params)
     |> case do
       {:ok, updated_post} ->
@@ -55,14 +53,9 @@ defmodule ElxproBlogWeb.PostController do
 
   def delete(conn, %{"id" => id}) do
     PostRepo.delete(id)
-    |> case do
-      {:ok, _post} ->
-        conn
-        |> put_flash(:info, "Post excluído")
-        |> redirect(to: Routes.post_path(conn, :index))
 
-      {:error, _changeset} ->
-        render(conn, "index.html")
-    end
+    conn
+    |> put_flash(:info, "Post excluído")
+    |> redirect(to: Routes.post_path(conn, :index))
   end
 end

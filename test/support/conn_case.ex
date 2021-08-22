@@ -34,11 +34,35 @@ defmodule ElxproBlogWeb.ConnCase do
 
   setup tags do
     :ok = Sandbox.checkout(ElxproBlog.Repo)
+    post = ElxproBlog.Factory.insert(:post)
 
     unless tags[:async] do
       Sandbox.mode(ElxproBlog.Repo, {:shared, self()})
     end
 
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
+    {:ok, conn: Phoenix.ConnTest.build_conn(), post: post}
+  end
+
+  def get_resp_body(conn), do: conn |> Map.get(:resp_body) |> Jason.decode!()
+
+  def get_resp_message(conn) do
+    case conn |> get_resp_body() do
+      %{"message" => message} -> message
+      body -> raise "Field \"message\" not found in #{inspect(body)}"
+    end
+  end
+
+  def get_resp_data(conn) do
+    case conn |> get_resp_body() do
+      %{"data" => data} -> data
+      body -> raise "Field \"data\" not found in #{inspect(body)}"
+    end
+  end
+
+  def get_resp_details(conn) do
+    case conn |> get_resp_body() do
+      %{"details" => details} -> details
+      body -> raise "Field \"details\" not found in #{inspect(body)}"
+    end
   end
 end
