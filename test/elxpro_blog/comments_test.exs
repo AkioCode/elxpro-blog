@@ -1,8 +1,8 @@
 defmodule ElxproBlog.CommentsTest do
   use ElxproBlog.DataCase
 
-  alias ElxproBlog.Factory
   alias ElxproBlog.Comments.Core.CommentRepo
+  alias ElxproBlog.Factory
 
   describe "comments" do
     alias ElxproBlog.Comments.Data.Comment
