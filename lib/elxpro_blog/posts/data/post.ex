@@ -9,6 +9,8 @@ defmodule ElxproBlog.Posts.Data.Post do
   schema "posts" do
     field :title, :string
     field :description, :string
+
+    has_many :comments, ElxproBlog.Comments.Data.Comment
     timestamps()
   end
 
