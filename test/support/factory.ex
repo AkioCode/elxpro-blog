@@ -1,8 +1,8 @@
 defmodule ElxproBlog.Factory do
   @moduledoc false
   use ExMachina.Ecto, repo: ElxproBlog.Repo
-  alias ElxproBlog.Posts.Data.Post
   alias ElxproBlog.Comments.Data.Comment
+  alias ElxproBlog.Posts.Data.Post
 
   def post_factory do
     %Post{
