@@ -1,11 +1,12 @@
 defmodule ElxproBlogWeb.CommentsChannel do
+  @moduledoc false
   use ElxproBlogWeb, :channel
 
-  alias ElxproBlog.Posts.Core.PostRepo
   alias ElxproBlog.Comments.Core.CommentRepo
+  alias ElxproBlog.Posts.Core.PostRepo
 
   @impl true
-  def join("comments:"<>post_id, payload, socket) do
+  def join("comments:" <> post_id, payload, socket) do
     post = PostRepo.get_post_with_comments!(post_id)
     {:ok, %{comments: post.comments}, assign(socket, :post_id, post_id)}
   end
@@ -20,7 +21,6 @@ defmodule ElxproBlogWeb.CommentsChannel do
 
     case response do
       {:ok, comment} ->
-
         broadcast!(socket, "comments:#{socket.assigns.post_id}:new", %{comment: comment})
         {:reply, :ok, socket}
 
