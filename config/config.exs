@@ -13,10 +13,10 @@ config :elxpro_blog,
 # Configures the endpoint
 config :elxpro_blog, ElxproBlogWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "BYuWB1heIUGDOFPue3m9cj43b3h1YPzPzJ3Y7k8lg0cdLcDDqDFLOepxlNBW5jL1",
+  secret_key_base: "1dZ/JhVgfQsXF0kU/mbwnf16ZKzf4bHlhr/5Sv5i9M3QSJ7NX+OUtTgSAKq+95F4",
   render_errors: [view: ElxproBlogWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: ElxproBlog.PubSub,
-  live_view: [signing_salt: "exxlKGP9"]
+  live_view: [signing_salt: "+5w+3Xb/"]
 
 # Configures Elixir's Logger
 config :logger, :console,
