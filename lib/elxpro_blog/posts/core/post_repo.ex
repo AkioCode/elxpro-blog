@@ -14,6 +14,8 @@ defmodule ElxproBlog.Posts.Core.PostRepo do
     Repo.get!(Post, id)
   end
 
+  def get_post_with_comments!(id), do: Repo.get!(Post, id) |> Repo.preload(:comments)
+
   @spec insert(map) :: {:ok, Post} | {:error, any}
   def insert(params) do
     Post.changeset(%Post{}, params)
