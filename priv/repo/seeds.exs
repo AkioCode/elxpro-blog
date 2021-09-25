@@ -1,9 +1,9 @@
 alias ElxproBlog.Repo
 
-%{title: Faker.App.name(), description: Faker.Lorem.Shakespeare.hamlet()}
-|> ElxproBlog.Posts.Data.Post.changeset()
+%ElxproBlog.Posts.Data.Post{}
+|> ElxproBlog.Posts.Data.Post.changeset(%{title: Faker.App.name(), description: Faker.Lorem.Shakespeare.hamlet()})
 |> Repo.insert!()
 
-%{title: Faker.App.name(), description: Faker.Lorem.Shakespeare.hamlet()}
-|> ElxproBlog.Posts.Data.Post.changeset()
+%ElxproBlog.Posts.Data.Post{}
+|> ElxproBlog.Posts.Data.Post.changeset(%{title: Faker.App.name(), description: Faker.Lorem.Shakespeare.hamlet()})
 |> Repo.insert!()
