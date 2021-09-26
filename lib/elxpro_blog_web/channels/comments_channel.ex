@@ -27,7 +27,5 @@ defmodule ElxproBlogWeb.CommentsChannel do
       {:error, changeset} ->
         {:reply, {:error, %{errors: changeset}}}
     end
-
-    {:reply, :ok, socket}
   end
 end
