@@ -2,11 +2,15 @@ defmodule ElxproBlogWeb.AuthController do
   use ElxproBlogWeb, :controller
   plug Ueberauth
 
-  def request(conn, _params) do
-    render(conn, "index.html")
-  end
-
-  def callback(conn, _params) do
+  def callback(%{assigns: %{ueberauth_auth: auth}} = conn, %{"provider" => provider}) do
+    user = %{
+      token: auth.credentials.token,
+      email: auth.info.email,
+      first_name: auth.info.first_name,
+      last_name: auth.info.last_name,
+      image: auth.info.image,
+      provider: provider,
+    }
     render(conn, "index.html")
   end
 end
