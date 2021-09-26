@@ -72,7 +72,8 @@ defmodule ElxproBlog.MixProject do
       {:excoveralls, "~> 0.10", only: :test},
       {:faker, "~> 0.16", only: [:dev, :test]},
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
-      {:ex_machina, "~> 2.7.0", only: :test}
+      {:ex_machina, "~> 2.7.0", only: :test},
+      {:ueberauth_google, "~> 0.10"}
     ]
   end
 

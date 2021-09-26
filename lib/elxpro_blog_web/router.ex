@@ -18,4 +18,10 @@ defmodule ElxproBlogWeb.Router do
     resources "/posts", PostController
     get "/", PageController, :index
   end
+  scope "/auth", ElxproBlogWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
 end
