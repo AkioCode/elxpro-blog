@@ -7,9 +7,10 @@ defmodule ElxproBlogWeb.CommentsChannelTest do
   alias ElxproBlogWeb.UserSocket
 
   setup do
-    posts = Enum.map(1..10, fn _ ->
-      Factory.insert(:post)
-    end)
+    posts =
+      Enum.map(1..10, fn _ ->
+        Factory.insert(:post)
+      end)
 
     Enum.each(1..25, fn _ ->
       Factory.insert(:comment, %{post: Enum.random(posts)})
